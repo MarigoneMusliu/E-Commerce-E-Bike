@@ -24,7 +24,8 @@ const scrollToProducts = () => {
       />
       <div class="overlay">
         <button class="shop-now-btn" @click="scrollToProducts"></button>
-        <button class="second-btn" @click="scrollToProducts"></button> <!-- New second button -->
+        <button class="second-btn" @click="scrollToProducts"></button>
+        <!-- New second button -->
       </div>
     </div>
 
@@ -34,7 +35,9 @@ const scrollToProducts = () => {
       <div class="products-title">
         <h2>Products</h2>
       </div>
-      <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+      <div
+        class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4"
+      >
         <ProductCard
           v-for="product in filteredProducts"
           :key="product.id"
@@ -63,30 +66,30 @@ const scrollToProducts = () => {
   object-fit: cover; /* Ensure the image covers the area while maintaining its aspect ratio */
 }
 
-
 /* Position the buttons container */
 .hero-image .overlay {
   position: absolute;
-  bottom: 230px; /* Adjust position as needed */
+  bottom: 238px; /* Adjust position as needed */
   left: 200px; /* Move the buttons further to the left */
   display: flex;
   gap: 30px; /* 3 cm (30px) distance between buttons */
 }
 
-/* Transparent "SHOP NOW" button */
+/* Transparent buttons (invisible but clickable) */
 .shop-now-btn,
 .second-btn {
-  width: 180px;  /* Increased width */
-  height: 50px;  /* Increased height */
-  background-color: transparent;
-  border: none;  /* No border */
+  width: 180px; /* Button width */
+  height: 50px; /* Button height */
+  background-color: transparent; /* Make the background transparent */
+  border: none; /* No border */
   cursor: pointer;
+  opacity: 0; /* Make the buttons invisible */
 }
 
-/* Hover effect for both buttons */
+/* Optional: Hover effect for both buttons (will still be invisible even on hover) */
 .shop-now-btn:hover,
 .second-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Light white background when hovered */
+  background-color: transparent; /* No change on hover */
 }
 
 /* Centering the 'Products' text */
@@ -94,8 +97,8 @@ const scrollToProducts = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;  /* Adjust height as needed */
-  margin-bottom: 30px;  /* Space between the title and the products */
+  height: 100px; /* Adjust height as needed */
+  margin-bottom: 30px; /* Space between the title and the products */
 }
 
 .products-title h2 {
