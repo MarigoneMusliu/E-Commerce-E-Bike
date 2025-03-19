@@ -68,7 +68,7 @@ const scrollToProducts = () => {
 .hero-image .overlay {
   position: absolute;
   bottom: 230px; /* Adjust position as needed */
-  left: 165px; /* Move the buttons further to the left */
+  left: 185px; /* Move the buttons further to the left */
   display: flex;
   gap: 30px; /* 3 cm (30px) distance between buttons */
 }
