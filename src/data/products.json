@@ -1,0 +1,162 @@
+[
+  {
+    "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    "image": "/products-img/f6.jpg",
+    "name": "Introducing the New Mongoose Terrain Bike: The Ultimate All-Terrain Adventure Companion",
+    "rating": {
+      "stars": 4.5,
+      "count": 87
+    },
+    "priceCents": 10900
+  },
+  {
+    "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+    "image": "/products-img/f2.jpg",
+    "name": "The Trek FX 3 Disc: A Versatile Hybrid Bike for Any Journey",
+    "rating": {
+      "stars": 4,
+      "count": 127
+    },
+    "priceCents": 20950
+  },
+  {
+    "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    "image": "/products-img/f10.jpg",
+    "name": "Cannondale Quick CX 3: A Fast Urban Bike with the Perfect Balance of Comfort",
+    "rating": {
+      "stars": 4.5,
+      "count": 56
+    },
+    "priceCents": 7990
+  },
+  {
+    "id": "54e0eccd-8f36-462b-b68a-8182611d9add",
+    "image": "/products-img/f4.jpg",
+    "name": "Specialized Turbo Vado SL 4.0: A Lightweight Electric Bike for City Riders",
+    "rating": {
+      "stars": 5,
+      "count": 2197
+    },
+    "priceCents": 18990
+  },
+  {
+    "id": "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+    "image": "/products-img/f5.jpg",
+    "name": "Giant Escape 3: A Lightweight Urban Bike with Great Handling",
+    "rating": {
+      "stars": 4,
+      "count": 37
+    },
+    "priceCents": 20670
+  },
+  {
+    "id": "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+    "image": "/products-img/f6.jpg",
+    "name": "BMC 257 AMP: The New Urban E-Bike with Bosch Drive System",
+    "rating": {
+      "stars": 4.5,
+      "count": 175
+    },
+    "priceCents": 34990
+  },
+  {
+    "id": "dd82ca78-a18b-4e2a-9250-31e67412f98d",
+    "image": "/products-img/f7.jpg",
+    "name": "Plain Hooded Fleece Sweatshirt - Ultimate Comfort for Your Rides",
+    "rating": {
+      "stars": 4.5,
+      "count": 317
+    },
+    "priceCents": 24000
+  },
+  {
+    "id": "77919bbe-0e56-475b-adde-4f24dfed3a04",
+    "image": "/products-img/f8.jpg",
+    "name": "Luxury Road Bike: Carbon Fiber Frame with Shimano Ultegra Components",
+    "rating": {
+      "stars": 4.5,
+      "count": 144
+    },
+    "priceCents": 35990
+  },
+  {
+    "id": "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
+    "image": "/products-img/f9.jpg",
+    "name": "Electric MTB: Ride Anywhere with Full Suspension and Powerful Motor",
+    "rating": {
+      "stars": 4.5,
+      "count": 305
+    },
+    "priceCents": 28990
+  },
+  {
+    "id": "58b4fc92-e98c-42aa-8c55-b6b79996769a",
+    "image": "/products-img/f10.jpg",
+    "name": "Waterproof Knit Athletic Sneakers - Gray: Perfect for On-the-Go Riders",
+    "rating": {
+      "stars": 4,
+      "count": 89
+    },
+    "priceCents": 33900
+  },
+  {
+    "id": "5968897c-4d27-4872-89f6-5bcb052746d7",
+    "image": "/products-img/f11.jpg",
+    "name": "Women's Chiffon Beachwear Cover Up - Perfect for Your Cycling Getaway",
+    "rating": {
+      "stars": 4.5,
+      "count": 235
+    },
+    "priceCents": 20700
+  },
+  {
+    "id": "aad29d11-ea98-41ee-9285-b916638cac4a",
+    "image": "/products-img/f12.jpg",
+    "name": "Round Sunglasses - Ideal for Cycling and Outdoor Adventures",
+    "rating": {
+      "stars": 4.5,
+      "count": 30
+    },
+    "priceCents": 15600
+  },
+  {
+    "id": "04701903-bc79-49c6-bc11-1af7e3651358",
+    "image": "/products-img/f13.jpg",
+    "name": "Women's Two Strap Buckle Sandals - Tan: Comfort for Your Outdoor Rides",
+    "rating": {
+      "stars": 4.5,
+      "count": 562
+    },
+    "priceCents": 24990
+  },
+  {
+    "id": "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
+    "image": "/products-img/f14.jpg",
+    "name": "Countertop Blender - 64oz, 1400 Watts: Perfect for Cyclists’ Smoothie Needs",
+    "rating": {
+      "stars": 4.5,
+      "count": 232
+    },
+    "priceCents": 40380
+  },
+  {
+    "id": "c2a82c5e-aff4-435f-9975-517cfaba2ece",
+    "image": "/products-img/f4.jpg",
+    "name": "All new at BMC: 257 AMP is the name of the new urban e-bike with Bosch’s drive system",
+    "rating": {
+      "stars": 5,
+      "count": 80
+    },
+    "priceCents": 50080
+  },
+  {
+    "id": "36c64692-677f-4f58-b5ec-0dc2cf109e27",
+    "image": "/products-img/f2.jpg",
+    "name": "10-Piece Mixing Bowl Set with Lids - Floral: Designed for the Perfect Picnic After a Ride",
+    "rating": {
+      "stars": 5,
+      "count": 679
+    },
+    "priceCents": 38990
+  }
+]
