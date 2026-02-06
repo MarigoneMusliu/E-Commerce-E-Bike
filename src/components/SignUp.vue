@@ -1,76 +1,107 @@
 <script setup>
-import {ref, onMounted} from "vue"
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
-const username = ref('')
-const email = ref('')
-const psw = ref('')
-const isEmailNotValid = ref(false)
-const isEmailBlank = ref(false)
-const isUsernameBlank = ref(false)
-const isPswBlank = ref(false)
-const usernameToDisplay = ref('')
-const storedShowSignupForm = JSON.parse(localStorage.getItem('showSignupForm'))
-const storedShowSignedupCard = JSON.parse(localStorage.getItem('showSignedupCard'))
-const showSignupForm = ref(storedShowSignupForm !== null ? storedShowSignupForm : true)
-const showSignedupCard = ref(storedShowSignedupCard !== null ? storedShowSignedupCard : false)
+const username = ref("");
+const email = ref("");
+const psw = ref("");
+const isEmailNotValid = ref(false);
+const isEmailBlank = ref(false);
+const isUsernameBlank = ref(false);
+const isPswBlank = ref(false);
+const usernameToDisplay = ref("");
+const storedShowSignupForm = JSON.parse(localStorage.getItem("showSignupForm"));
+const storedShowSignedupCard = JSON.parse(
+  localStorage.getItem("showSignedupCard"),
+);
+const showSignupForm = ref(
+  storedShowSignupForm !== null ? storedShowSignupForm : true,
+);
+const showSignedupCard = ref(
+  storedShowSignedupCard !== null ? storedShowSignedupCard : false,
+);
+
+const router = useRouter();
 
 const handleSignup = () => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  isEmailNotValid.value = emailRegex.test(email.value)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  isEmailNotValid.value = emailRegex.test(email.value);
 
-  isUsernameBlank.value = username.value ? false : true
+  isUsernameBlank.value = username.value ? false : true;
 
-  isPswBlank.value = psw.value ? false : true
+  isPswBlank.value = psw.value ? false : true;
 
   if (!email.value) {
-    isEmailBlank.value = true
+    isEmailBlank.value = true;
   } else if (!isEmailNotValid.value) {
-    isEmailBlank.value = false
-    isEmailNotValid.value = true
+    isEmailBlank.value = false;
+    isEmailNotValid.value = true;
   } else {
-    isEmailNotValid.value = false
-    isEmailBlank.value = false
+    isEmailNotValid.value = false;
+    isEmailBlank.value = false;
   }
 
-  if (isUsernameBlank.value || isPswBlank.value || isEmailBlank.value || isEmailNotValid.value) {
-    return
+  if (
+    isUsernameBlank.value ||
+    isPswBlank.value ||
+    isEmailBlank.value ||
+    isEmailNotValid.value
+  ) {
+    return;
   }
 
-  localStorage.setItem('account', JSON.stringify(username.value))
-  localStorage.setItem('showSignupForm', JSON.stringify(false))
-  localStorage.setItem('showSignedupCard', JSON.stringify(true))
-  usernameToDisplay.value = JSON.parse(localStorage.getItem('account'))
+  localStorage.setItem("account", JSON.stringify(username.value));
+  localStorage.setItem("showSignupForm", JSON.stringify(false));
+  localStorage.setItem("showSignedupCard", JSON.stringify(true));
+  window.dispatchEvent(new Event("auth-changed"));
+  usernameToDisplay.value = JSON.parse(localStorage.getItem("account"));
 
-  showSignedupCard.value = JSON.parse(localStorage.getItem('showSignedupCard'))
-  showSignupForm.value = JSON.parse(localStorage.getItem('showSignupForm'))
+  showSignedupCard.value = JSON.parse(localStorage.getItem("showSignedupCard"));
+  showSignupForm.value = JSON.parse(localStorage.getItem("showSignupForm"));
 
-  username.value = ''
-  email.value = ''
-  psw.value = ''
-}
+  username.value = "";
+  email.value = "";
+  psw.value = "";
+
+  // Show success card briefly, then redirect to home
+  // keep the signed-up card visible (stored in localStorage) so the user sees confirmation
+  setTimeout(() => {
+    router.push({ name: "home" });
+  }, 1800);
+};
 
 const useAnotherAccount = () => {
-  localStorage.setItem('showSignupForm', JSON.stringify(true))
-  localStorage.setItem('showSignedupCard', JSON.stringify(false))
+  localStorage.setItem("showSignupForm", JSON.stringify(true));
+  localStorage.setItem("showSignedupCard", JSON.stringify(false));
+  window.dispatchEvent(new Event("auth-changed"));
 
-  showSignupForm.value = JSON.parse(localStorage.getItem('showSignupForm'))
-  showSignedupCard.value = JSON.parse(localStorage.getItem('showSignedupCard'))
-}
+  showSignupForm.value = JSON.parse(localStorage.getItem("showSignupForm"));
+  showSignedupCard.value = JSON.parse(localStorage.getItem("showSignedupCard"));
+};
 
 onMounted(() => {
-  usernameToDisplay.value = JSON.parse(localStorage.getItem('account')) || ''
+  usernameToDisplay.value = JSON.parse(localStorage.getItem("account")) || "";
 });
 </script>
 
 <template>
   <section
-      v-if="showSignupForm"
-      class="background-radial-gradient overflow-hidden">
+    v-if="showSignupForm"
+    class="background-radial-gradient overflow-hidden"
+  >
     <div class="container py-5 px-md-5 my-4">
       <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-xl-5 col-lg-7 col-md-9 col-sm-9 mb-5 mb-lg-0 position-relative">
-          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+        <div
+          class="col-xl-5 col-lg-7 col-md-9 col-sm-9 mb-5 mb-lg-0 position-relative"
+        >
+          <div
+            id="radius-shape-1"
+            class="position-absolute rounded-circle shadow-5-strong"
+          ></div>
+          <div
+            id="radius-shape-2"
+            class="position-absolute shadow-5-strong"
+          ></div>
           <div class="card bg-glass col-12">
             <h3 class="text-light text-center mt-4">Signup for free</h3>
             <div class="card-body px-4 pb-5 px-md-5">
@@ -79,47 +110,60 @@ onMounted(() => {
                   <i class="bi bi-person-fill me-1"></i>
                   <label class="form-label" for="form3Example2">Username</label>
                   <input
-                      v-model.trim="username"
-                      type="text" id="form3Example2"
-                      class="form-control"
-                      :class="{'border-3 border-warning': isUsernameBlank}"
+                    v-model.trim="username"
+                    type="text"
+                    id="form3Example2"
+                    class="form-control"
+                    :class="{ 'border-3 border-warning': isUsernameBlank }"
                   />
-                  <span
-                      v-if="isUsernameBlank"
-                      class="text-warning">Can't be blank. <i class="bi bi-exclamation-circle-fill"></i>
+                  <span v-if="isUsernameBlank" class="text-warning"
+                    >Can't be blank.
+                    <i class="bi bi-exclamation-circle-fill"></i>
                   </span>
                 </div>
                 <div class="form-outline mb-4 text-light fw-semibold">
                   <i class="bi bi-envelope-at-fill me-1"></i>
-                  <label class="form-label" for="form3Example3">Email address</label>
+                  <label class="form-label" for="form3Example3"
+                    >Email address</label
+                  >
                   <input
-                      v-model.trim="email"
-                      type="email" id="form3Example3" class="form-control"
-                      :class="{'border-3 border-warning': isEmailBlank || isEmailNotValid}"/>
-                  <span
-                      v-if="isEmailNotValid"
-                      class="text-warning">
-                    Please enter a valid email address. <i class="bi bi-exclamation-circle-fill"></i>
+                    v-model.trim="email"
+                    type="email"
+                    id="form3Example3"
+                    class="form-control"
+                    :class="{
+                      'border-3 border-warning':
+                        isEmailBlank || isEmailNotValid,
+                    }"
+                  />
+                  <span v-if="isEmailNotValid" class="text-warning">
+                    Please enter a valid email address.
+                    <i class="bi bi-exclamation-circle-fill"></i>
                   </span>
-                  <span
-                      v-if="isEmailBlank"
-                      class="text-warning">Can't be blank. <i class="bi bi-exclamation-circle-fill"></i>
+                  <span v-if="isEmailBlank" class="text-warning"
+                    >Can't be blank.
+                    <i class="bi bi-exclamation-circle-fill"></i>
                   </span>
                 </div>
                 <div class="form-outline mb-4 text-light fw-semibold">
                   <i class="bi bi-lock-fill me-1"></i>
                   <label class="form-label" for="form3Example4">Password</label>
                   <input
-                      v-model.trim="psw"
-                      type="password" id="form3Example4" class="form-control"
-                      :class="{'border-3 border-warning': isPswBlank}"/>
-                  <span
-                      v-if="isPswBlank"
-                      class="text-warning">Can't be blank. <i class="bi bi-exclamation-circle-fill"></i></span>
+                    v-model.trim="psw"
+                    type="password"
+                    id="form3Example4"
+                    class="form-control"
+                    :class="{ 'border-3 border-warning': isPswBlank }"
+                  />
+                  <span v-if="isPswBlank" class="text-warning"
+                    >Can't be blank.
+                    <i class="bi bi-exclamation-circle-fill"></i
+                  ></span>
                 </div>
                 <button
-                    @click.prevent="handleSignup"
-                    class="btn btn-danger w-100 fw-semibold">
+                  @click.prevent="handleSignup"
+                  class="btn btn-danger w-100 fw-semibold"
+                >
                   Signup
                 </button>
               </form>
@@ -131,24 +175,38 @@ onMounted(() => {
   </section>
 
   <section
-      v-if="showSignedupCard"
-      class="background-radial-gradient overflow-hidden">
+    v-if="showSignedupCard"
+    class="background-radial-gradient overflow-hidden"
+  >
     <div class="container py-5 px-md-5 my-4">
       <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-xl-5 col-lg-7 col-md-9 col-sm-9 mb-5 mb-lg-0 position-relative">
-          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+        <div
+          class="col-xl-5 col-lg-7 col-md-9 col-sm-9 mb-5 mb-lg-0 position-relative"
+        >
+          <div
+            id="radius-shape-1"
+            class="position-absolute rounded-circle shadow-5-strong"
+          ></div>
+          <div
+            id="radius-shape-2"
+            class="position-absolute shadow-5-strong"
+          ></div>
           <div class="card signedup-card bg-glass">
             <div
-                class="card-body py-4 text-light d-flex flex-column justify-content-center align-items-center text-center">
+              class="card-body py-4 text-light d-flex flex-column justify-content-center align-items-center text-center"
+            >
               <h1>Hello {{ usernameToDisplay }}</h1>
-              <h3>You have successfully signed up as {{ usernameToDisplay }}</h3>
+              <h3>
+                You have successfully signed up as {{ usernameToDisplay }}
+              </h3>
               <i class="check-icon bi bi-check-circle-fill"></i>
             </div>
             <p
-                @click="useAnotherAccount"
-                class="another-acc text-primary text-decoration-underline fw-bold text-center">Signup with another
-              account</p>
+              @click="useAnotherAccount"
+              class="another-acc text-primary text-decoration-underline fw-bold text-center"
+            >
+              Signup with another account
+            </p>
           </div>
         </div>
       </div>
@@ -163,12 +221,23 @@ section {
 
 .background-radial-gradient {
   background-color: hsl(0, 41%, 15%);
-  background-image: radial-gradient(650px circle at 0% 0%,
-  hsl(0, 41%, 35%) 15%, hsl(0, 41%, 30%) 35%, hsl(0, 41%, 20%) 75%, hsl(0, 41%, 19%) 80%,
-  transparent 100%),
-  radial-gradient(1250px circle at 100% 100%,
-      hsl(0, 41%, 45%) 15%, hsl(0, 41%, 30%) 35%, hsl(0, 41%, 20%) 75%, hsl(0, 41%, 19%) 80%,
-      transparent 100%);
+  background-image:
+    radial-gradient(
+      650px circle at 0% 0%,
+      hsl(0, 41%, 35%) 15%,
+      hsl(0, 41%, 30%) 35%,
+      hsl(0, 41%, 20%) 75%,
+      hsl(0, 41%, 19%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(0, 41%, 45%) 15%,
+      hsl(0, 41%, 30%) 35%,
+      hsl(0, 41%, 20%) 75%,
+      hsl(0, 41%, 19%) 80%,
+      transparent 100%
+    );
 }
 
 #radius-shape-1 {
@@ -191,7 +260,7 @@ section {
 }
 
 .bg-glass {
-  background-color: hsla(360, 94%, 45%, 0.30) !important;
+  background-color: hsla(360, 94%, 45%, 0.3) !important;
   backdrop-filter: saturate(100%) blur(10px);
 }
 
