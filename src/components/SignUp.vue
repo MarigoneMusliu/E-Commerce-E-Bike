@@ -220,22 +220,22 @@ section {
 }
 
 .background-radial-gradient {
-  background-color: hsl(0, 41%, 15%);
+  background-color: #0b7e7c;
   background-image:
     radial-gradient(
       650px circle at 0% 0%,
-      hsl(0, 41%, 35%) 15%,
-      hsl(0, 41%, 30%) 35%,
-      hsl(0, 41%, 20%) 75%,
-      hsl(0, 41%, 19%) 80%,
+      #39b2bf 15%,
+      #2a9eaa 35%,
+      #0b7e7c 75%,
+      #0a6f6d 80%,
       transparent 100%
     ),
     radial-gradient(
       1250px circle at 100% 100%,
-      hsl(0, 41%, 45%) 15%,
-      hsl(0, 41%, 30%) 35%,
-      hsl(0, 41%, 20%) 75%,
-      hsl(0, 41%, 19%) 80%,
+      #75cff5 15%,
+      #39b2bf 35%,
+      #0b7e7c 75%,
+      #0a6f6d 80%,
       transparent 100%
     );
 }
@@ -260,7 +260,7 @@ section {
 }
 
 .bg-glass {
-  background-color: hsla(360, 94%, 45%, 0.3) !important;
+  background-color: rgba(57, 178, 191, 0.3) !important;
   backdrop-filter: saturate(100%) blur(10px);
 }
 
