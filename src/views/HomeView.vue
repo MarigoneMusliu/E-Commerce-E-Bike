@@ -99,7 +99,7 @@ const scrollToProducts = () => {
 /* Position the buttons container */
 .hero-image .overlay {
   position: absolute;
-  top: 35%;
+  top: 22%;
   right: 8%;
   display: flex;
   align-items: flex-start;

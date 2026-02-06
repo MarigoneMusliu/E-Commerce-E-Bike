@@ -42,3 +42,29 @@ const handleResetFilter = () => {
   <RouterView :filteredProducts="filteredProducts"/>
   <Footer/>
 </template>
+
+<style>
+/* Replace bootstrap danger button colors with teal/blue palette */
+.btn-danger {
+  background-color: #0b7e7c !important;
+  border-color: #0b7e7c !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #39b2bf !important;
+  border-color: #39b2bf !important;
+}
+
+.btn-outline-danger {
+  color: #0b7e7c !important;
+  border-color: #0b7e7c !important;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+  color: #ffffff !important;
+  background-color: #39b2bf !important;
+  border-color: #39b2bf !important;
+}
+</style>
