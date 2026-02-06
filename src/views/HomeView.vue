@@ -1,10 +1,8 @@
 <script setup>
 import ProductCard from "@/components/ProductCard.vue";
 
-// Props to receive filtered products
 const { filteredProducts } = defineProps(["filteredProducts"]);
 
-// Function to scroll to the products section
 const scrollToProducts = () => {
   const productsSection = document.getElementById("products-section");
   if (productsSection) {
@@ -15,7 +13,6 @@ const scrollToProducts = () => {
 
 <template>
   <div class="home-page">
-    <!-- Horizontal Image Section -->
     <div class="hero-image">
       <img
         src="/products-img/header.svg"
@@ -33,7 +30,6 @@ const scrollToProducts = () => {
       </div>
     </div>
 
-    <!-- Highlight Strip -->
     <div class="highlights container">
       <div class="highlight-card">
         <i class="bi bi-truck"></i>
@@ -58,9 +54,8 @@ const scrollToProducts = () => {
       </div>
     </div>
 
-    <!-- Products Section -->
     <div id="products-section" class="container my-5">
-      <!-- Centered text -->
+   
       <div class="products-title">
         <h2>Products</h2>
       </div>
@@ -83,7 +78,6 @@ const scrollToProducts = () => {
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 60%, #f1f5f9 100%);
 }
 
-/* Hero image styling */
 .hero-image {
   position: relative;
   width: 100%;
@@ -91,12 +85,11 @@ const scrollToProducts = () => {
 }
 
 .hero-image-img {
-  width: 100%; /* Make the image width 100% of its container */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: cover; /* Ensure the image covers the area while maintaining its aspect ratio */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-/* Position the buttons container */
 .hero-image .overlay {
   position: absolute;
   top: 22%;
@@ -182,18 +175,17 @@ const scrollToProducts = () => {
   }
 }
 
-/* Centering the 'Products' text */
 .products-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px; /* Adjust height as needed */
-  margin-bottom: 30px; /* Space between the title and the products */
+  height: 100px;
+  margin-bottom: 30px;
 }
 
 .products-title h2 {
-  font-size: 36px; /* Adjust the font size */
+  font-size: 36px;
   font-weight: bold;
-  color: #333; /* Adjust the color */
+  color: #333;
 }
 </style>

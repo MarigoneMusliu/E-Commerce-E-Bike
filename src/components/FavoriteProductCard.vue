@@ -102,24 +102,24 @@ img {
 }
 
 .border-primary {
-  border-color: #003366 !important; /* Dark navy blue border */
+  border-color: #003366 !important;
 }
 
 .text-primary {
-  color: #003366 !important; /* Dark navy blue text */
+  color: #003366 !important;
 }
 
 .text-primary-emphasis {
-  color: #003366 !important; /* Dark navy blue emphasis text */
+  color: #003366 !important;
 }
 
 .btn-primary {
-  background-color: #003366; /* Dark navy blue button */
+  background-color: #003366;
   border-color: #003366;
 }
 
 .btn-outline-primary {
-  border-color: #003366 !important; /* Dark navy blue outline button */
+  border-color: #003366 !important;
   color: #003366 !important;
 }
 </style>

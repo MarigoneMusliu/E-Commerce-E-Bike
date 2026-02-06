@@ -1,50 +1,51 @@
 <script setup>
-import {RouterView} from 'vue-router'
-import {ref} from "vue";
-import p from '@/data/products.json'
+import { RouterView } from "vue-router";
+import { ref } from "vue";
+import p from "@/data/products.json";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 
 const allProducts = ref(p);
-const filteredProducts = ref(allProducts.value)
+const filteredProducts = ref(allProducts.value);
 
-const cartProducts = ref(JSON.parse(localStorage.getItem('product')))
+const cartProducts = ref(JSON.parse(localStorage.getItem("product")));
 if (!cartProducts.value) {
-  localStorage.setItem('product', '[]')
+  localStorage.setItem("product", "[]");
 }
 
-const favoriteProduct = ref(JSON.parse(localStorage.getItem('favoriteProducts')))
+const favoriteProduct = ref(
+  JSON.parse(localStorage.getItem("favoriteProducts")),
+);
 if (!favoriteProduct.value) {
-  localStorage.setItem('favoriteProducts', '[]')
+  localStorage.setItem("favoriteProducts", "[]");
 }
 
-const account = ref(JSON.parse(localStorage.getItem('account')))
+const account = ref(JSON.parse(localStorage.getItem("account")));
 if (!account.value) {
-  localStorage.setItem('account', '[]')
+  localStorage.setItem("account", "[]");
 }
 const handleSearch = (searchValue) => {
   if (!searchValue.trim) {
-    filteredProducts.value = allProducts.value
+    filteredProducts.value = allProducts.value;
   } else {
-    filteredProducts.value = allProducts.value.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase()))
+    filteredProducts.value = allProducts.value.filter((product) =>
+      product.name.toLowerCase().includes(searchValue.toLowerCase()),
+    );
   }
-}
+};
 
 const handleResetFilter = () => {
-  filteredProducts.value = allProducts.value
-}
+  filteredProducts.value = allProducts.value;
+};
 </script>
 
 <template>
-  <Navbar
-      @search="handleSearch"
-      @resetFilter="handleResetFilter"/>
-  <RouterView :filteredProducts="filteredProducts"/>
-  <Footer/>
+  <Navbar @search="handleSearch" @resetFilter="handleResetFilter" />
+  <RouterView :filteredProducts="filteredProducts" />
+  <Footer />
 </template>
 
 <style>
-/* Replace bootstrap danger button colors with teal/blue palette */
 .btn-danger {
   background-color: #0b7e7c !important;
   border-color: #0b7e7c !important;
@@ -66,5 +67,35 @@ const handleResetFilter = () => {
   color: #ffffff !important;
   background-color: #39b2bf !important;
   border-color: #39b2bf !important;
+}
+
+.text-danger {
+  color: #0b7e7c !important;
+}
+
+.border-danger {
+  border-color: #0b7e7c !important;
+}
+
+.bg-danger {
+  background-color: #0b7e7c !important;
+}
+
+.badge.bg-danger {
+  background-color: #0b7e7c !important;
+}
+
+.link-danger {
+  color: #39b2bf !important;
+}
+
+.alert-danger {
+  color: #0b7e7c !important;
+  background-color: rgba(117, 207, 245, 0.22) !important;
+  border-color: #39b2bf !important;
+}
+
+.table-danger {
+  --bs-table-bg: rgba(117, 207, 245, 0.18);
 }
 </style>

@@ -32,14 +32,16 @@ const totalProductsQuantity = computed(() => {
 
 const shippingFee = ref(5);
 const productsTotal = computed(() =>
-  (Math.round(productsQtyTotalPrice.value) / 100).toFixed(2)
+  (Math.round(productsQtyTotalPrice.value) / 100).toFixed(2),
 );
 const totalWithShipping = computed(() =>
-  (Math.round(productsQtyTotalPrice.value) / 100 + shippingFee.value).toFixed(2)
+  (Math.round(productsQtyTotalPrice.value) / 100 + shippingFee.value).toFixed(
+    2,
+  ),
 );
 const tax = computed(() => (totalWithShipping.value * 0.08).toFixed(2));
 const orderTotal = computed(() =>
-  (parseFloat(totalWithShipping.value) + parseFloat(tax.value)).toFixed(2)
+  (parseFloat(totalWithShipping.value) + parseFloat(tax.value)).toFixed(2),
 );
 </script>
 
@@ -108,35 +110,35 @@ const orderTotal = computed(() =>
 }
 
 .bg-dark-subtle {
-  background-color: #003366; /* Darker navy blue for empty cart background */
+  background-color: #003366;
 }
 
 .text-dark {
-  color: #003366 !important; /* Darker navy blue text */
+  color: #003366 !important;
 }
 
 .btn-dark {
-  background-color: #003366; /* Darker navy blue button */
+  background-color: #003366;
   border-color: #003366;
 }
 
 .border-dark {
-  border-color: #003366 !important; /* Darker navy blue border */
+  border-color: #003366 !important;
 }
 
 .removed-message {
-  background-color: #003366; /* Darker navy blue for removed message background */
+  background-color: #003366;
   color: #fff;
   border-color: #003366;
 }
 
 .text-success {
-  color: #fff; /* Keeping success text white for visibility */
+  color: #fff;
 }
 
 .card-header,
 .card-footer {
-  background-color: #003366; /* Darker navy blue header/footer */
+  background-color: #003366;
   color: #fff;
 }
 </style>

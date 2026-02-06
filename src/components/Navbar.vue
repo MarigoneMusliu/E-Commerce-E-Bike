@@ -35,7 +35,6 @@ const logout = () => {
   accountName.value = "";
   showProfileMenu.value = false;
   window.dispatchEvent(new Event("auth-changed"));
-  // take user back to account page to sign in again
   router.push({ path: "/account" });
 };
 

@@ -63,8 +63,6 @@ const handleSignup = () => {
   email.value = "";
   psw.value = "";
 
-  // Show success card briefly, then redirect to home
-  // keep the signed-up card visible (stored in localStorage) so the user sees confirmation
   setTimeout(() => {
     router.push({ name: "home" });
   }, 1800);

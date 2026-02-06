@@ -7,25 +7,28 @@ const {
   tax,
   orderTotal,
 } = defineProps([
-  'products',
-  'totalProductsQuantity',
-  'productsTotal',
-  'totalWithShipping',
-  'tax',
-  'orderTotal'
-])
+  "products",
+  "totalProductsQuantity",
+  "productsTotal",
+  "totalWithShipping",
+  "tax",
+  "orderTotal",
+]);
 </script>
 
 <template>
   <section class="col-lg-4 col-md-12 order-lg-2 order-1">
     <div class="payment-summary card shadow-lg mb-3 fw-semibold border-primary">
-      <div class="card-header text-light bg-primary">
-        Order Details
-      </div>
+      <div class="card-header text-light bg-primary">Order Details</div>
       <div class="card-body">
         <div class="card-text">
           <div class="d-flex justify-content-between mb-2">
-            <p>Products (<span class="text-primary">{{ totalProductsQuantity }}</span>):</p>
+            <p>
+              Products (<span class="text-primary">{{
+                totalProductsQuantity
+              }}</span
+              >):
+            </p>
             <p>{{ productsTotal }} &euro;</p>
           </div>
           <div class="d-flex justify-content-between mb-2">
@@ -33,9 +36,13 @@ const {
             <p v-if="products.length === 0">0 &euro;</p>
             <p v-else>5 &euro;</p>
           </div>
-          <div class="d-flex justify-content-between border-primary border-top py-2 mb-2">
+          <div
+            class="d-flex justify-content-between border-primary border-top py-2 mb-2"
+          >
             <p>Total without TAX:</p>
-            <p v-if="products.length === 0">{{ totalWithShipping = 0 }} &euro;</p>
+            <p v-if="products.length === 0">
+              {{ totalWithShipping = 0 }} &euro;
+            </p>
             <p v-else>{{ totalWithShipping }} &euro;</p>
           </div>
           <div class="d-flex justify-content-between mb-2">
@@ -61,7 +68,7 @@ const {
 
 <style scoped>
 .card-header {
-  background-color: #003366; /* Navy blue */
+  background-color: #003366;
   color: #fff;
 }
 
@@ -72,11 +79,11 @@ const {
 
 .card-footer {
   background-color: #f8f9fa;
-  border-top: 5px solid #003366; /* Navy blue */
+  border-top: 5px solid #003366;
 }
 
 .text-primary {
-  color: #003366 !important; /* Navy blue text */
+  color: #003366 !important;
 }
 
 .btn-primary {
@@ -85,7 +92,7 @@ const {
 }
 
 .card {
-  border: 1px solid #003366; /* Navy blue border */
+  border: 1px solid #003366;
   border-radius: 10px;
 }
 

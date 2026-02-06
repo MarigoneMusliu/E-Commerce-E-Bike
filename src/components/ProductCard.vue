@@ -49,7 +49,7 @@ const addToFavorites = () => {
           }}</span>
         </div>
         <RouterLink :to="`/product/${product.id}`" class="text-decoration-none">
-          <h5 class="card-title text-dark-emphasis">{{ product.name }}</h5>
+          <h5 class="card-title product-name">{{ product.name }}</h5>
         </RouterLink>
         <h5 class="card-text">
           {{ (Math.round(product.priceCents) / 100).toFixed(2) }} &euro;
@@ -99,7 +99,6 @@ const addToFavorites = () => {
   filter: drop-shadow(0 8px 18px rgba(2, 6, 23, 0.18));
 }
 
-/* Elevated hover effect for the whole product card */
 .product-card {
   transition:
     transform 0.28s ease,
@@ -120,5 +119,9 @@ const addToFavorites = () => {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.product-name {
+  color: #0b7e7c;
 }
 </style>

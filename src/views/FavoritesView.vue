@@ -22,7 +22,6 @@ const removeAllFavorites = () => {
       </div>
     </div>
 
-    <!-- No Favorites Message -->
     <div
       v-if="storeFavorites.favoriteItems.length === 0"
       class="no-favorite-msg d-flex justify-content-center align-items-center col-12 p-4 bg-light rounded-3 shadow-sm"
@@ -32,7 +31,6 @@ const removeAllFavorites = () => {
       </h1>
     </div>
 
-    <!-- Favorite Products -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
       <FavoriteProductCard
         v-for="favoriteProduct in storeFavorites.favoriteItems"
@@ -51,15 +49,14 @@ const removeAllFavorites = () => {
   margin: 0 auto;
 }
 
-/* Button Styling */
 .remove-all-btn {
-  background-color: #ff4d4d;
+  background-color: #0b7e7c;
   color: white;
   transition: all 0.3s ease;
 }
 
 .remove-all-btn:hover {
-  background-color: #e60000;
+  background-color: #39b2bf;
   transform: scale(1.05);
 }
 
@@ -67,7 +64,6 @@ const removeAllFavorites = () => {
   margin-right: 10px;
 }
 
-/* No Favorite Message Styling */
 .no-favorite-msg {
   height: 50vh;
   background-color: #f8f9fa;
@@ -84,7 +80,6 @@ const removeAllFavorites = () => {
   margin-left: 10px;
 }
 
-/* Product Grid Styling */
 .row-cols-1 {
   margin-top: 20px;
 }
